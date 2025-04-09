@@ -1,0 +1,127 @@
+$date
+	Fri Mar  7 11:11:18 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module fullsub_tb $end
+$var wire 4 ! sub [3:0] $end
+$var wire 1 " cout_sub $end
+$var reg 4 # sub1 [3:0] $end
+$var reg 4 $ sub2 [3:0] $end
+$scope module fs $end
+$var wire 4 % sub1 [3:0] $end
+$var wire 4 & sub2 [3:0] $end
+$var wire 4 ' sub2_not [3:0] $end
+$var wire 4 ( sub [3:0] $end
+$var wire 1 " cout_sub $end
+$scope module fa5 $end
+$var wire 4 ) add1 [3:0] $end
+$var wire 4 * add2 [3:0] $end
+$var wire 1 + cin4 $end
+$var wire 3 , temp [2:0] $end
+$var wire 4 - sum4 [3:0] $end
+$var wire 1 " cout4 $end
+$scope module fa1 $end
+$var wire 1 . a $end
+$var wire 1 / b $end
+$var wire 1 + cin $end
+$var wire 1 0 cout $end
+$var wire 1 1 sum $end
+$upscope $end
+$scope module fa2 $end
+$var wire 1 2 a $end
+$var wire 1 3 b $end
+$var wire 1 4 cin $end
+$var wire 1 5 cout $end
+$var wire 1 6 sum $end
+$upscope $end
+$scope module fa3 $end
+$var wire 1 7 a $end
+$var wire 1 8 b $end
+$var wire 1 9 cin $end
+$var wire 1 : cout $end
+$var wire 1 ; sum $end
+$upscope $end
+$scope module fa4 $end
+$var wire 1 < a $end
+$var wire 1 = b $end
+$var wire 1 > cin $end
+$var wire 1 " cout $end
+$var wire 1 ? sum $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0?
+1>
+0=
+1<
+1;
+1:
+19
+18
+17
+16
+15
+14
+13
+12
+11
+10
+1/
+1.
+b111 -
+b111 ,
+1+
+b111 *
+b1111 )
+b111 (
+b111 '
+b1000 &
+b1111 %
+b1000 $
+b1111 #
+1"
+b111 !
+$end
+#10
+01
+06
+b0 !
+b0 (
+b0 -
+0;
+0.
+02
+07
+b1000 #
+b1000 %
+b1000 )
+#20
+0"
+06
+b1000 !
+b1000 (
+b1000 -
+1?
+03
+b101 '
+b101 *
+12
+0<
+b1010 $
+b1010 &
+b10 #
+b10 %
+b10 )
+#30

@@ -1,0 +1,41 @@
+$date
+	Thu Mar  6 15:13:03 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module shift_left_4bit_tb $end
+$var wire 4 ! out [3:0] $end
+$var reg 4 " in [3:0] $end
+$var reg 2 # n [1:0] $end
+$scope module sl4b $end
+$var wire 4 $ in [3:0] $end
+$var wire 2 % n [1:0] $end
+$var wire 4 & out [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1000 &
+b1 %
+b1100 $
+b1 #
+b1100 "
+b1000 !
+$end
+#10
+b0 !
+b0 &
+b11 #
+b11 %
+#20
+b10 #
+b10 %
+#30

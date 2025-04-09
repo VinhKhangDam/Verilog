@@ -1,0 +1,47 @@
+$date
+	Thu Mar  6 22:27:50 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module mul4bit_tb $end
+$var wire 8 ! mul [7:0] $end
+$var reg 4 " a [3:0] $end
+$var reg 4 # b [3:0] $end
+$scope module m4 $end
+$var wire 4 $ a [3:0] $end
+$var wire 4 % b [3:0] $end
+$var reg 8 & mul [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b100000 &
+b100 %
+b1000 $
+b100 #
+b1000 "
+b100000 !
+$end
+#10
+b10100 !
+b10100 &
+b1010 #
+b1010 %
+b10 "
+b10 $
+#20
+b1101001 !
+b1101001 &
+b1111 #
+b1111 %
+b111 "
+b111 $
+#30

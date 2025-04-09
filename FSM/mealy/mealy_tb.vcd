@@ -1,0 +1,312 @@
+$date
+	Sat Mar  8 13:41:39 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module mealy_tb $end
+$var wire 1 ! y $end
+$var reg 1 " clk $end
+$var reg 1 # i $end
+$var reg 1 $ rst $end
+$scope module ml $end
+$var wire 1 " clk $end
+$var wire 1 # i $end
+$var wire 1 $ rst $end
+$var wire 1 ! y $end
+$var wire 1 % q1 $end
+$var wire 1 & q0 $end
+$var wire 1 ' d1 $end
+$var wire 1 ( d0 $end
+$scope module f1 $end
+$var wire 1 " clk $end
+$var wire 1 $ rst $end
+$var wire 1 ' i $end
+$var reg 1 % o $end
+$upscope $end
+$scope module f2 $end
+$var wire 1 " clk $end
+$var wire 1 $ rst $end
+$var wire 1 ( i $end
+$var reg 1 & o $end
+$upscope $end
+$scope module m1 $end
+$var wire 1 ( d0 $end
+$var wire 1 ' d1 $end
+$var wire 1 # i $end
+$var wire 1 & q0 $end
+$var wire 1 % q1 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1(
+0'
+0&
+0%
+1$
+0#
+0"
+0!
+$end
+#5
+1"
+#10
+0(
+0"
+1#
+0$
+#15
+1"
+#20
+0"
+#25
+1"
+#30
+1(
+0"
+0#
+#35
+1&
+1"
+#40
+0"
+#45
+1"
+#50
+0(
+1'
+0"
+1#
+#55
+1(
+1%
+0&
+1"
+#60
+0"
+#65
+0'
+0(
+1&
+1"
+#70
+1(
+1!
+0"
+0#
+#75
+0!
+0%
+1"
+#80
+0"
+#85
+1"
+#90
+0(
+1'
+0"
+1#
+#95
+1(
+1%
+0&
+1"
+#100
+0"
+#105
+0'
+0(
+1&
+1"
+#110
+1(
+1!
+0"
+0#
+#115
+0!
+0%
+1"
+#120
+0"
+#125
+1"
+#130
+0(
+1'
+0"
+1#
+#135
+1(
+1%
+0&
+1"
+#140
+0"
+#145
+0'
+0(
+1&
+1"
+#150
+1(
+1!
+0"
+0#
+#155
+0!
+0%
+1"
+#160
+0"
+#165
+1"
+#170
+0(
+1'
+0"
+1#
+#175
+1(
+1%
+0&
+1"
+#180
+0"
+#185
+0'
+0(
+1&
+1"
+#190
+1(
+1!
+0"
+0#
+#195
+0!
+0%
+1"
+#200
+0"
+#205
+1"
+#210
+0(
+1'
+0"
+1#
+#215
+1(
+1%
+0&
+1"
+#220
+0"
+#225
+0'
+0(
+1&
+1"
+#230
+1(
+1!
+0"
+0#
+#235
+0!
+0%
+1"
+#240
+0"
+#245
+1"
+#250
+0(
+1'
+0"
+1#
+#255
+1(
+1%
+0&
+1"
+#260
+0"
+#265
+0'
+0(
+1&
+1"
+#270
+1(
+1!
+0"
+0#
+#275
+0!
+0%
+1"
+#280
+0"
+#285
+1"
+#290
+0(
+1'
+0"
+1#
+#295
+1(
+1%
+0&
+1"
+#300
+0"
+#305
+0'
+0(
+1&
+1"
+#310
+1(
+1!
+0"
+0#
+#315
+0!
+0%
+1"
+#320
+0"
+#325
+1"
+#330
+0(
+1'
+0"
+1#
+#335
+1(
+1%
+0&
+1"
+#340
+0"
+#345
+0'
+0(
+1&
+1"
+#350
+0"
