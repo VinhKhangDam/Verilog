@@ -6,3 +6,4 @@ module mux2to1 (
 assign s = (~sel) & a | sel & b; 
 
 endmodule
+

@@ -1,0 +1,117 @@
+$date
+	Sun May 11 22:36:49 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module alu_tb $end
+$var wire 32 ! alu_out [31:0] $end
+$var wire 1 " add_sub_overflow $end
+$var reg 3 # alu_op [2:0] $end
+$var reg 32 $ operand1 [31:0] $end
+$var reg 32 % operand2 [31:0] $end
+$scope module uut $end
+$var wire 3 & aluop [2:0] $end
+$var wire 32 ' operand1 [31:0] $end
+$var wire 32 ( operand2 [31:0] $end
+$var parameter 3 ) ADD $end
+$var parameter 3 * AND $end
+$var parameter 3 + COMPLEMENT $end
+$var parameter 3 , DECREMENT $end
+$var parameter 3 - INCREMENT $end
+$var parameter 3 . OR $end
+$var parameter 3 / SUB $end
+$var parameter 3 0 XOR $end
+$var reg 1 " add_sub_overflow $end
+$var reg 32 1 alu_out [31:0] $end
+$var reg 32 2 alu_tmp [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10 0
+b110 /
+b11 .
+b111 -
+b100 ,
+b0 +
+b1 *
+b101 )
+$end
+#0
+$dumpvars
+b11111111111111111111111111100000 2
+b11111111111111111111111111100000 1
+b100010 (
+b100000 '
+b0 &
+b100010 %
+b100000 $
+b0 #
+0"
+b11111111111111111111111111100000 !
+$end
+#10
+b100000 !
+b100000 1
+b100000 2
+b1 #
+b1 &
+#20
+b10 !
+b10 1
+b10 2
+b10 #
+b10 &
+#30
+b100010 !
+b100010 1
+b100010 2
+b11 #
+b11 &
+#40
+b11111 !
+b11111 1
+b11111 2
+b100 #
+b100 &
+#50
+b1000010 !
+b1000010 1
+b1000010 2
+b101 #
+b101 &
+#60
+b11111111111111111111111111111110 !
+b11111111111111111111111111111110 1
+b11111111111111111111111111111110 2
+b110 #
+b110 &
+#70
+b100001 !
+b100001 1
+b100001 2
+b111 #
+b111 &
+#80
+b10000000000000000000000000000000 !
+b10000000000000000000000000000000 1
+1"
+b10000000000000000000000000000000 2
+b101 #
+b101 &
+b1 %
+b1 (
+b1111111111111111111111111111111 $
+b1111111111111111111111111111111 '
+#90
+1"
+b110 #
+b110 &
+b11111111111111111111111111111111 %
+b11111111111111111111111111111111 (
+#100

@@ -23,4 +23,5 @@ always @(*) begin
         out = a ^ b;
     else
         out = 4'b0000;
-end
+end // always @ (*)
+   endmodule
