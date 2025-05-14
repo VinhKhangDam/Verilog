@@ -1,17 +1,19 @@
-`timescale 1ps/1ps
-
+`timescale 1ns/1ps
+`include"alu.v"
 module alu_tb;
   reg signed [31:0] operand1, operand2;
   reg [2:0] alu_op;
   wire signed [31:0] alu_out;
   wire add_sub_overflow;
+  wire zero;
 
-  alu uut(
+  alu hehe(
     .operand1(operand1),
     .operand2(operand2),
     .aluop(alu_op),
     .alu_out(alu_out),
-    .add_sub_overflow(add_sub_overflow)
+    .add_sub_overflow(add_sub_overflow),
+    .zero(zero)
   );
   initial begin
     $dumpfile("alu_tb.vcd");
