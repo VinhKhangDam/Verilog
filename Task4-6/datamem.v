@@ -1,25 +1,25 @@
 module datamem(
-    input wire clk, 
-    input wire MemWrite, MemRead,
-    input wire [31:0] Address,
-    input wire [31:0] WriteData_Mem,
-    output reg [31:0] ReadData_Mem
+    input wire datamem_clk, 
+    input wire datamem_MemWrite, datamem_MemRead,
+    input wire [31:0] datamem_address,
+    input wire [31:0] datamem_Write,
+    output reg [31:0] datamem_Read
 );
 reg [31:0] Mem [0:1023];
-always @(posedge clk) begin
-    if (MemWrite) begin
-        Mem[Address[31:2]] <= WriteData_Mem;
+always @(posedge datamem_clk) begin
+    if (datamem_MemWrite) begin
+        Mem[datamem_address[31:2]] <= datamem_Write;
     end
     else begin
-        Mem[Address[31:2]] <= Mem[Address[31:2]];
+        Mem[datamem_address[31:2]] <= Mem[datamem_address[31:2]];
     end
 end
 always @(*) begin
-    if (MemRead) begin
-        ReadData_Mem = Mem[Address[31:2]];
+    if (datamem_MemRead) begin
+        datamem_Read = Mem[datamem_address[31:2]];
     end
     else begin
-        ReadData_Mem = 32'b0;
+        datamem_Read = 32'b0;
     end
 end
 endmodule

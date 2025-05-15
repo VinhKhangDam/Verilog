@@ -1,20 +1,21 @@
-`include "../regfile.v"
 `include "../alu.v"
 `include "../sign_extend.v"
+`include "../controlunit.v"
 `include "../datamem.v"
 `include "../inmem.v"
 `include "../pc.v"
-`include "../controlunit.v"
+`include "../regfile.v"
+
 module datapath (
     input wire clk, rst,
-    output RegWrite, MemWrite, MemRead,
-    output [31:0] pc,
-    output [31:0] instruction,
-    output [31:0] ReadData2,
-    output [31:0] MemWrite_Data,
-    output [31:0] MemAddr,
-    output [31:0] ALU_Result
+    output wire RegWrite, MemWrite, MemRead,
+    output wire [31:0] pc,
+    output wire [31:0] instruction,
+    output wire [31:0] ReadData2,
+    output wire [31:0] ALU_Result
 );
+
+//Program counter
 wire [31:0] pc_tmp;
 wire [31:0] instruction_tmp;
 
@@ -26,77 +27,83 @@ pc pc_d(
     .rst(rst),
     .pc_out(pc_tmp)
 );
+
+//Instruction Memory
 inmem imem(
-    .Address(pc_tmp),
-    .instruction(instruction_tmp)
+    .inmem_address(pc_tmp),
+    .inmem_instruction(instruction_tmp)
 );
 
-wire [5:0] opcode = instruction_tmp[31:26];
-wire [4:0] rs      = instruction_tmp[25:21];
-wire [4:0] rt      = instruction_tmp[20:16];
-wire [4:0] rd      = instruction_tmp[15:11];
-wire [5:0] funct   = instruction_tmp[5:0];
-wire [15:0] immediate = instruction_tmp[15:0];
+//Instruction for datapath and control unit
+wire [5:0] opcode       = instruction_tmp[31:26];
+wire [4:0] rs           = instruction_tmp[25:21];
+wire [4:0] rt           = instruction_tmp[20:16];
+wire [4:0] rd           = instruction_tmp[15:11];
+wire [5:0] funct        = instruction_tmp[5:0];
+wire [15:0] immediate   = instruction_tmp[15:0];
 
+//Control unit
 wire RegDst, ALUSrc, MemToReg;
 wire[3:0] ALU_Control;
 
 controlunit cu(
-    .opcode(opcode),
-    .funct(funct),
-    .RegDst(RegDst),
-    .MemToReg(MemToReg),
-    .RegWrite(RegWrite),
-    .MemRead(MemRead),
-    .MemWrite(MemWrite),
-    .ALU_Control(ALU_Control)
+    .controlunit_opcode(opcode),
+    .controlunit_funct(funct),
+    .controlunit_RegDst(RegDst),
+    .controlunit_MemToReg(MemToReg),
+    .controlunit_RegWrite(RegWrite),
+    .controlunit_MemRead(MemRead),
+    .controlunit_MemWrite(MemWrite),
+    .controlunit_ALUSrc(ALUSrc),
+    .controlunit_alu_control(ALU_Control)
 );
 
-wire [31:0]ReadData1;
-wire [31:0]sign_extend_imme;
-wire [31:0] alu_op2;
-wire [31:0] ReadData_Mem;
+//Reg File
+wire [31:0] ReadData1;
 wire [31:0] WriteData;
-wire [31:0] WriteReg;
-
-regfile rf(
-    .clk(clk),
-    .rst(rst),
-    .ReadReg1(rs),
-    .ReadReg2(rt),
-    .WriteReg(WriteReg),
-    .WriteData(WriteData),
-    .RegWrite(RegWrite),
-    .ReadData1(ReadData1),
-    .ReadData2(ReadData2)
-);
-
+wire [4:0] WriteReg;
+//Mux RegDst
 assign WriteReg = (RegDst) ? rd : rt;
+regfile rf(
+    .regfile_clk(clk),
+    .regfile_rst(rst),
+    .regfile_ReadReg1(rs),
+    .regfile_ReadReg2(rt),
+    .regfile_WriteReg(WriteReg),
+    .regfile_WriteData(WriteData),
+    .regfile_RegWrite(RegWrite),
+    .regfile_ReadData1(ReadData1),
+    .regfile_ReadData2(ReadData2)
+);
 
+//Sign extend
+wire [31:0] sign_extend_imme;
 sign_extend se(
-    .in(immediate),
-    .out(sign_extend_imme)
+    .signextend_in(immediate),
+    .signextend_out(sign_extend_imme)
 );
 
+//mux ALUSrc
+wire [31:0] alu_op2;
 assign alu_op2 = (ALUSrc) ? sign_extend_imme : ReadData2;
-
+//ALU
 alu al(
-    .op1(ReadData1),
-    .op2(alu_op2),
+    .alu_op1(ReadData1),
+    .alu_op2(alu_op2),
     .alu_control(ALU_Control),
-    .result(ALU_Result)
+    .alu_result(ALU_Result),
+    .alu_zero()
 );
 
-assign MemAddr = ALU_Result;
-
-assign WriteData_Mem = ReadData2;
-
+wire [31:0] ReadData_Mem;
 datamem dm(
-    .clk(clk),
-    .Address(MemAddr),
-    .WriteData_Mem(WriteData_Mem),
-    .ReadData_Mem(ReadData_Mem),
-    .MemRead(MemRead),
-    .MemWrite(MemWrite)
+    .datamem_clk(clk),
+    .datamem_address(ALU_Result),
+    .datamem_Write(ReadData2),
+    .datamem_Read(ReadData_Mem),
+    .datamem_MemRead(MemRead),
+    .datamem_MemWrite(MemWrite)
 );
+
+assign WriteData = (MemToReg) ? ReadData_Mem : ALU_Result;
 endmodule
