@@ -1,0 +1,141 @@
+$date
+    May 15, 2025  17:46:30
+$end
+$version
+    TOOL:	xmsim(64)	23.03-s007
+$end
+$timescale
+    1 ps
+$end
+
+$scope module controlunit_tb $end
+$var reg       6 !    opcode [5:0] $end
+$var reg       6 "    funct [5:0] $end
+$var wire      1 #    RegDst  $end
+$var wire      1 $    MemRead  $end
+$var wire      1 %    MemWrite  $end
+$var wire      1 &    MemToReg  $end
+$var wire      1 '    ALUSrc  $end
+$var wire      1 (    RegWrite  $end
+$var wire      4 )    ALU_Control [3:0] $end
+
+$scope module controlunit_inst $end
+$var wire      6 *    opcode [5:0] $end
+$var wire      6 +    funct [5:0] $end
+$var reg       1 ,    RegDst $end
+$var reg       1 -    MemRead $end
+$var reg       1 .    MemWrite $end
+$var reg       1 /    MemToReg $end
+$var reg       1 0    ALUSrc $end
+$var reg       1 1    RegWrite $end
+$var reg       4 2    ALU_Control [3:0] $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+b0 !
+b0 "
+x#
+x$
+x%
+x&
+x'
+x(
+bx )
+b0 *
+b0 +
+x,
+x-
+x.
+x/
+x0
+x1
+bx 2
+$end
+#10000
+b1 !
+b100000 "
+b100000 +
+b1 *
+0,
+00
+0/
+11
+0-
+0.
+b0 2
+1,
+01
+b101 2
+b101 )
+0%
+0$
+0(
+0&
+0'
+1#
+#20000
+b0 "
+b0 +
+0,
+11
+b0 2
+1,
+01
+b0 )
+#30000
+b100 !
+bx "
+bx +
+b100 *
+0,
+11
+10
+1/
+1-
+b101 2
+b101 )
+1$
+1&
+1'
+1(
+0#
+#40000
+b10 !
+b10 *
+00
+0/
+0-
+b0 2
+10
+01
+1.
+b101 2
+1%
+0(
+0$
+0&
+#50000
+b111111 !
+b111111 *
+00
+11
+0.
+b0 2
+x,
+x0
+x/
+x1
+x-
+x.
+bx 2
+x$
+x&
+x#
+bx )
+x%
+x(
+x'
+#60000

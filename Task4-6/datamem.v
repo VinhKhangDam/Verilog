@@ -1,29 +1,25 @@
 module datamem(
-    input clk,
-    input MemWrite, 
-    input MemRead,
-    input [31:0] Addr,
-    input [31:0] WriteData,
-    output reg [31:0] ReadData
-  );
-  reg [31:0] Mem [0:255];
-  integer i;
-  initial begin
-    for (i = 0; i < 256; i = i + 1) 
-      Mem[i] = 0;
-  end
-  
-  // Asynchronous Read
-  always @(*) begin
-    if (MemRead)
-      ReadData = Mem[Addr[9:2]];
-    else
-      ReadData = 32'b0;
-  end
-  
-  // Synchronous Write
-  always @(posedge clk) begin
-    if (MemWrite)
-      Mem[Addr[9:2]] <= WriteData;
-  end
-  endmodule
+    input wire clk, 
+    input wire MemWrite, MemRead,
+    input wire [31:0] Address,
+    input wire [31:0] WriteData_Mem,
+    output reg [31:0] ReadData_Mem
+);
+reg [31:0] Mem [0:1023];
+always @(posedge clk) begin
+    if (MemWrite) begin
+        Mem[Address[31:2]] <= WriteData_Mem;
+    end
+    else begin
+        Mem[Address[31:2]] <= Mem[Address[31:2]];
+    end
+end
+always @(*) begin
+    if (MemRead) begin
+        ReadData_Mem = Mem[Address[31:2]];
+    end
+    else begin
+        ReadData_Mem = 32'b0;
+    end
+end
+endmodule

@@ -1,25 +1,29 @@
 module regfile(
-    input clk,
-    input RegWrite,
-    input [4:0] ReadReg1, ReadReg2, WriteReg,
-    input [31:0] WriteData,
-    output [31:0] ReadData1, ReadData2
-  );
-  
-  reg [31:0] Regs [31:0];
-  integer i;
-  initial begin
-    for (i = 0; i < 32; i = i + 1) 
-      Regs[i] = 0;
-  end
-  
-  // always @(negedge clk) begin
-  assign ReadData1 = Regs[ReadReg1];
-  assign ReadData2 = Regs[ReadReg2];
-  // end
-  
-  always @(posedge clk) begin
-    if (RegWrite) 
-      Regs[WriteReg] <= WriteData;
+    input wire clk, rst,
+    input wire RegWrite,
+    input wire [4:0] ReadReg1, ReadReg2, WriteReg, 
+    input wire [31:0] WriteData,
+    output reg [31:0] ReadData1, ReadData2
+);
+
+reg [31:0] Regs [0:31];
+initial begin
+    Regs[0] = 32'b0;
+end
+
+always @(posedge clk) begin
+    if (!rst) begin
+        Regs[0] <= 32'b0;
     end
-  endmodule
+    else if (RegWrite) begin
+        if (WriteReg != 5'b00000) begin
+            Regs[WriteReg] <= WriteData;
+        end
+    end
+end
+
+always @(*) begin
+    ReadData1 = (ReadReg1 == 5'b00000) ? 32'b0 : Regs[ReadReg1];
+    ReadData2 = (ReadReg2 == 5'b00000) ? 32'b0 : Regs[ReadReg2];
+end
+endmodule
