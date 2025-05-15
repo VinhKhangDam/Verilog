@@ -106,4 +106,5 @@ datamem dm(
 );
 
 assign WriteData = (MemToReg) ? ReadData_Mem : ALU_Result;
+
 endmodule

@@ -15,11 +15,20 @@ always @(*) begin
     controlunit_alu_control = 4'b0000;
 
     case(controlunit_opcode) 
-        6'b000001 : begin
-            controlunit_RegDst = 1;
+        6'b000000 : begin //NOP
+            controlunit_RegDst = 0;
             controlunit_ALUSrc = 0;
             controlunit_MemToReg = 0;
             controlunit_RegWrite = 0;
+            controlunit_MemRead = 0;
+            controlunit_MemWrite = 0;
+            controlunit_alu_control = 4'b0000;
+        end
+        6'b000001 : begin //R-Type(ADD)
+            controlunit_RegDst = 1;
+            controlunit_ALUSrc = 0;
+            controlunit_MemToReg = 0;
+            controlunit_RegWrite = 1;
             controlunit_MemRead = 0;
             controlunit_MemWrite = 0;
             case (controlunit_funct) 
@@ -27,7 +36,7 @@ always @(*) begin
                 default   : controlunit_alu_control = 4'b0000;
             endcase
         end
-        6'b000100 : begin
+        6'b000100 : begin//LW
             controlunit_RegDst = 0;
             controlunit_ALUSrc = 1;
             controlunit_MemToReg = 1;
@@ -36,7 +45,7 @@ always @(*) begin
             controlunit_MemWrite = 0;
             controlunit_alu_control =  4'b0101;
         end
-        6'b000010 : begin
+        6'b000010 : begin//SW
             controlunit_RegDst = 0;
             controlunit_ALUSrc = 1;
             controlunit_MemToReg = 0;
@@ -46,13 +55,13 @@ always @(*) begin
             controlunit_alu_control =  4'b0101;
         end
         default: begin
-            controlunit_RegDst = 'bx;
-            controlunit_ALUSrc = 'bx;
-            controlunit_MemToReg = 'bx;
-            controlunit_RegWrite = 'bx;
-            controlunit_MemRead = 'bx;
-            controlunit_MemWrite = 'bx;
-            controlunit_alu_control = 'bxxxx;
+            controlunit_RegDst = 0;
+            controlunit_ALUSrc = 0;
+            controlunit_MemToReg = 0;
+            controlunit_RegWrite = 0;
+            controlunit_MemRead = 0;
+            controlunit_MemWrite = 0;
+            controlunit_alu_control = 4'b0000;
         end
     endcase
 end
