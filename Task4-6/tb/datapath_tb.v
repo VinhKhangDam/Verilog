@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "../datapath.v"
+`include "datapath.v"
 module datapath_tb;
 
    // Clock and reset signals

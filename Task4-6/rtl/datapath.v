@@ -1,11 +1,9 @@
-`include "../alu.v"
-`include "../sign_extend.v"
-`include "../controlunit.v"
-`include "../datamem.v"
-`include "../inmem.v"
-`include "../pc.v"
-`include "../regfile.v"
-
+`include "alu.v"
+`include "sign_extend.v"
+`include "controlunit.v"
+`include "datamem.v"
+`include "inmem.v"
+`include "pc.v"
 module datapath (
     input wire clk, rst,
     output wire RegWrite, MemWrite, MemRead,
