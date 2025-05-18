@@ -6,7 +6,7 @@ module inmem(
 reg [31:0] inmems [0:1023];
 
 initial begin
-    $readmemh("../testcase.txt", inmems);
+    $readmemh("testcase.txt", inmems);
     $display("Instruction memory is loading");
 end
 

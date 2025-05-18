@@ -4,6 +4,7 @@
 `include "datamem.v"
 `include "inmem.v"
 `include "pc.v"
+`include "regfile.v"
 module datapath (
     input wire clk, rst,
     output wire RegWrite, MemWrite, MemRead,

@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "datapath.v"
+`include "./datapath.v"
 module datapath_tb;
 
    // Clock and reset signals
@@ -33,7 +33,7 @@ module datapath_tb;
 
    // Test stimulus
    initial begin
-        $dumpfile("../vcd/datapath.vcd");
+        $dumpfile("./vcd/datapath.vcd");
         $dumpvars(0, datapath_tb);
        $display("Starting Testbench...");
 
