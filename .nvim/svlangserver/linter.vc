@@ -26,9 +26,7 @@
 +incdir+/home/vinhkhang/Documents/Verilog/shift_left_4bit
 +incdir+/home/vinhkhang/Documents/Verilog/shift_left_right
 +incdir+/home/vinhkhang/Documents/Verilog/Task4-6
-+incdir+/home/vinhkhang/Documents/Verilog/Task4-6/Lam/mips/rtl
-+incdir+/home/vinhkhang/Documents/Verilog/Task4-6/Lam/mips/tb
-+incdir+/home/vinhkhang/Documents/Verilog/Task4-6/Quynh
++incdir+/home/vinhkhang/Documents/Verilog/Task4-6/tb
 +incdir+/home/vinhkhang/Documents/Verilog/add_sub_4bit
 +incdir+/home/vinhkhang/Documents/Verilog/ALU
 +incdir+/home/vinhkhang/Documents/Verilog/AND2
@@ -57,6 +55,4 @@
 +incdir+/home/vinhkhang/Documents/Verilog/shift_left_4bit
 +incdir+/home/vinhkhang/Documents/Verilog/shift_left_right
 +incdir+/home/vinhkhang/Documents/Verilog/Task4-6
-+incdir+/home/vinhkhang/Documents/Verilog/Task4-6/Lam/mips/rtl
-+incdir+/home/vinhkhang/Documents/Verilog/Task4-6/Lam/mips/tb
-+incdir+/home/vinhkhang/Documents/Verilog/Task4-6/Quynh
++incdir+/home/vinhkhang/Documents/Verilog/Task4-6/tb

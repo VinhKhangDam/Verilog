@@ -13,6 +13,7 @@ module ALU_tb;
     );
 
 initial begin
+    $monitor("Time = %0t | a = %b | b = %b | sel = %b | out = %b |", $time, a, b, sel, out);
     $dumpfile("ALU_tb.vcd");
     $dumpvars(0, ALU_tb);
 
